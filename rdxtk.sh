@@ -1,5 +1,10 @@
 #!/bin/bash
 #usermod -a -G root ec2-user
+if [ "$(whoami)" != "root" ]
+then
+    sudo su -s "$0"
+    exit
+fi
 sudo yum update -y
 sudo yum install epel-release -y
 sudo yum install git -y
