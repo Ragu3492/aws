@@ -24,6 +24,9 @@ sudo echo "CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';" | mysq
 sudo echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';" | mysql
 sudo echo "FLUSH PRIVILEGES;" | mysql
 
+
+
+sudo chown -R apache /var/www/html/wordpress
 sudo cd /var/www/html
 
 sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
