@@ -26,7 +26,7 @@ sudo echo "FLUSH PRIVILEGES;" | mysql
 
 
 
-sudo chown -R apache /var/www/html/wordpress
+sudo chown -R apache /var/www/html/
 sudo cd /var/www/html
 
 sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -36,7 +36,7 @@ sudo chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 sudo wp --info
 
-sudo cd /var/www/html/
+
 sudo wp core download
 sudo wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO
 sudo wp core install --url=zippyops.co.in --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com
