@@ -4,6 +4,7 @@ sudo /bin/su - root
 sudo yum update -y
 sudo yum install epel-release -y
 sudo yum install git -y
+sudo yum install wget -y
 sudo yum install httpd -y
 sudo systemctl start httpd && sudo systemctl enable httpd
 sudo setenforce 0
@@ -31,13 +32,13 @@ sudo chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 sudo wp --info
 
-sudo yum install wget -y
+
 cd /var/www/html
 wp core download --allow-root
 #wp config create --dbname=wordpress --dbuser=wordpress --dbpass=password --locale=ro_RO --allow-root
 sudo cp /root/wp-config/wp-config.php /var/www/html/
-
-wp core install --url=0.0.0.0:80 --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
+ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+wp core install --url=$ip --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
 wp theme install Consulting --allow-root
 wp theme activate consulting --allow-root
