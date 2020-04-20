@@ -15,10 +15,10 @@ sudo yum -y install mariadb-server
 sudo systemctl start mariadb && sudo systemctl enable mariadb
 
 #MySQL Consider changing values from drupaldb, drupaluser, and password
-#sudo echo "CREATE DATABASE wordpress CHARACTER SET utf8 COLLATE utf8_general_ci;;" | mysql
-#sudo echo "CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';" | mysql
-#sudo echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';" | mysql
-#sudo echo "FLUSH PRIVILEGES;" | mysql
+sudo echo "CREATE DATABASE wordpress CHARACTER SET utf8 COLLATE utf8_general_ci;;" | mysql
+sudo echo "CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';" | mysql
+sudo echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';" | mysql
+sudo echo "FLUSH PRIVILEGES;" | mysql
 
 sudo cd /var/www/html
 
@@ -32,7 +32,8 @@ sudo wp --info
 sudo yum install wget -y
 cd /var/www/html
 wp core download --allow-root
-wp config create --dbname=wordpress --dbuser=wordpress --dbpass=password --locale=ro_RO --allow-root
+#wp config create --dbname=wordpress --dbuser=wordpress --dbpass=password --locale=ro_RO --allow-root
+sudo git clone 
 wp core install --url= --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
 sudo systemctl restart httpd
