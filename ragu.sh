@@ -37,7 +37,7 @@ wp core download --allow-root
 #wp config create --dbname=wordpress --dbuser=wordpress --dbpass=password --locale=ro_RO --allow-root
 sudo cp /root/wp-config/wp-config.php /var/www/html/
 
-wp core install --url=0.0.0.0 --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
+wp core install --url=0.0.0.0:80 --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
 wp theme install Consulting --allow-root
 wp theme activate consulting --allow-root
