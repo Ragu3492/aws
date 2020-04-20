@@ -1,10 +1,6 @@
 #!/bin/bash
 #usermod -a -G root ec2-user
-if [ "$(whoami)" != "root" ]
-then
-    sudo su -s "$0"
-    exit
-fi
+sudo /bin/su - root
 sudo yum update -y
 sudo yum install epel-release -y
 sudo yum install git -y
@@ -39,3 +35,4 @@ sudo wp core download
 sudo wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO
 sudo wp core install --url=zippyops.co.in --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com
 sudo chown -R apache /var/www/html
+sudo systemctl restart httpd
