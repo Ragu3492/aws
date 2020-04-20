@@ -40,6 +40,6 @@ sudo cp /root/wp-config/wp-config.php /var/www/html/
 wp core install --url=54.179.155.14 --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
 wp theme install Consulting --allow-root
-wp theme activate Consulting --allow-root
+wp theme activate consulting --allow-root
 
 sudo systemctl restart httpd
