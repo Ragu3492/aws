@@ -32,7 +32,7 @@ sudo wp --info
 sudo yum install wget -y
 cd /var/www/html
 wp core download --allow-root
-wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO --allow-root
-wp core install --url=zippyops.co.in --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
+wp config create --dbname=wordpress --dbuser=wordpress --dbpass=password --locale=ro_RO --allow-root
+wp core install --url= --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
 sudo systemctl restart httpd
