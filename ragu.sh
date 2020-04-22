@@ -30,25 +30,25 @@ sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cl
 sudo php wp-cli.phar --info
 sudo chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
-sudo wp --info
+sudo wp --info --allow-root
 
 
 cd /var/www/html
-sudo wp core download --allow-root
-sudo wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO --allow-root
+wp core download --allow-root
+wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO --allow-root
 #sudo cp /root/wp-config/wp-config.php /var/www/html/
 ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 sudo wp core install --url=$ip --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
-sudo wp theme install Consulting --allow-root
-sudo wp theme activate consulting --allow-root
+wp theme install Consulting --allow-root
+wp theme activate consulting --allow-root
 
 
 cd 
 sudo git clone https://github.com/Ragu3492/xml.git
 sudo cp /root/xml/zippyopssite.wordpress.2020-04-22.000.xml /var/www/html/
 cd /var/www/html
-sudo wp plugin install wordpress-importer --activate --allow-root
-sudo wp import zippyopssite.wordpress.2020-04-22.000.xml --authors=create --allow-root
+wp plugin install wordpress-importer --activate --allow-root
+wp import zippyopssite.wordpress.2020-04-22.000.xml --authors=create --allow-root
 
 sudo systemctl restart httpd
