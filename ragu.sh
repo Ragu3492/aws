@@ -20,8 +20,8 @@ sudo echo "CREATE DATABASE zippyopsdb CHARACTER SET utf8 COLLATE utf8_general_ci
 sudo echo "CREATE USER 'zippyops'@'localhost' IDENTIFIED BY 'zippyops';" | mysql
 sudo echo "GRANT ALL PRIVILEGES ON zippyopsdb.* TO 'zippyops'@'localhost';" | mysql
 sudo echo "FLUSH PRIVILEGES;" | mysql
-cd /root/
-sudo git clone https://github.com/Ragu3492/wp-config.git
+#cd /root/
+#sudo git clone https://github.com/Ragu3492/wp-config.git
 
 sudo cd /var/www/html
 
@@ -35,8 +35,8 @@ sudo wp --info
 
 cd /var/www/html
 wp core download --allow-root
-#wp config create --dbname=wordpress --dbuser=wordpress --dbpass=password --locale=ro_RO --allow-root
-sudo cp /root/wp-config/wp-config.php /var/www/html/
+wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO --allow-root
+#sudo cp /root/wp-config/wp-config.php /var/www/html/
 ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 wp core install --url=$ip --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
