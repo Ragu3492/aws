@@ -34,21 +34,21 @@ sudo wp --info
 
 
 cd /var/www/html
-wp core download --allow-root
-wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO --allow-root
+sudo wp core download --allow-root
+sudo wp config create --dbname=zippyopsdb --dbuser=zippyops --dbpass=zippyops --locale=ro_RO --allow-root
 #sudo cp /root/wp-config/wp-config.php /var/www/html/
 ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
-wp core install --url=$ip --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
+sudo wp core install --url=$ip --title=zippyops --admin_user=zippyops --admin_password=zippyops --admin_email=admin@zippyops.com --allow-root
 sudo chown -R apache /var/www/html
-wp theme install Consulting --allow-root
-wp theme activate consulting --allow-root
+sudo wp theme install Consulting --allow-root
+sudo wp theme activate consulting --allow-root
 
 
 cd 
 sudo git clone https://github.com/Ragu3492/xml.git
 sudo cp /root/xml/zippyopssite.wordpress.2020-04-22.000.xml /var/www/html/
 cd /var/www/html
-wp plugin install wordpress-importer --activate --allow-root
-wp import zippyopssite.wordpress.2020-04-22.000.xml --authors=create --allow-root
+sudo wp plugin install wordpress-importer --activate --allow-root
+sudo wp import zippyopssite.wordpress.2020-04-22.000.xml --authors=create --allow-root
 
 sudo systemctl restart httpd
