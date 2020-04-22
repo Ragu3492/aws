@@ -1,6 +1,6 @@
 #!/bin/bash
 #usermod -a -G root ec2-user
-sudo /bin/su - root
+#sudo /bin/su - root
 sudo yum update -y
 sudo yum install epel-release -y
 sudo yum install git -y
